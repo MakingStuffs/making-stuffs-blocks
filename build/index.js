@@ -105,15 +105,47 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])("gut
   title: "Example: Basic",
   icon: "universal-access-alt",
   category: "layout",
-  example: {},
-  edit: function edit(_ref) {
-    var className = _ref.className;
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", {
-      className: className
-    }, "Hey there from the green editor");
+  // Tell WP scripts what we would like to get in the attributes object passed as props
+  // Below tells to get the content of the saved elements paragraph content
+  attributes: {
+    content: {
+      type: 'array',
+      source: 'children',
+      selector: 'p'
+    }
   },
-  save: function save() {
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", null, "Hey there front end is red");
+  // Give some demo content to the object
+  example: {
+    attributes: {
+      content: 'Hello Universe!'
+    }
+  },
+  edit: function edit(props) {
+    // Get the attributes from the props
+    var content = props.attributes.content,
+        setAttributes = props.setAttributes,
+        className = props.className; // Set the onChange event a la react
+
+    var onChangeContent = function onChangeContent(newContent) {
+      return setAttributes({
+        content: newContent
+      });
+    }; // Return the React component to the editor
+
+
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(RichText, {
+      tagName: "p",
+      className: className,
+      onChange: onChangeContent,
+      value: content
+    });
+  },
+  // Just return the component on the save function
+  save: function save(props) {
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(RichText.content, {
+      tagName: "p",
+      value: props.attributes.content
+    });
   }
 });
 
