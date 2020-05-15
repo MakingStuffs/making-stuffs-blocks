@@ -1,16 +1,14 @@
-import { registerBlockType } from '@wordpress/blocks';
+import { registerBlockType } from "@wordpress/blocks";
 
-const blockStyle = {
-    backgroundColor: '#900',
-    color: '#fff',
-    padding: '20px'
-};
-
-registerBlockType( 'gutenberg-examples/flex-row', {
-    title: 'Example: Basic',
-    icon: 'universal-access-alt',
-    category: 'layout',
-    example: {},
-    edit: () => <div style={ blockStyle }>Howdy, Ma'am</div>,
-    save: () => <div style={ blockStyle }>Howdy, Ma'am</div>
+registerBlockType("gutenberg-examples/flex-row", {
+  title: "Example: Basic",
+  icon: "universal-access-alt",
+  category: "layout",
+  example: {},
+  edit({ className }) {
+    return <p className={className}>Hey there from the green editor</p>;
+  },
+  save() {
+    return <p>Hey there front end is red</p>;
+  },
 });
