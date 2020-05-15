@@ -101,25 +101,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
 
 
-var blockStyle = {
-  backgroundColor: '#900',
-  color: '#fff',
-  padding: '20px'
-};
-Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])('gutenberg-examples/flex-row', {
-  title: 'Example: Basic',
-  icon: 'universal-access-alt',
-  category: 'layout',
+Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])("gutenberg-examples/flex-row", {
+  title: "Example: Basic",
+  icon: "universal-access-alt",
+  category: "layout",
   example: {},
-  edit: function edit() {
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-      style: blockStyle
-    }, "Howdy, Ma'am");
+  edit: function edit(_ref) {
+    var className = _ref.className;
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", {
+      className: className
+    }, "Hey there from the green editor");
   },
   save: function save() {
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-      style: blockStyle
-    }, "Howdy, Ma'am");
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", null, "Hey there front end is red");
   }
 });
 
