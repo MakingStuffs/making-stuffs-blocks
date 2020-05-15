@@ -1,9 +1,16 @@
 import { registerBlockType } from '@wordpress/blocks';
 
-registerBlockType( 'myguten/test-block', {
-    title: 'Basic Example',
-    icon: 'smiley',
+const blockStyle = {
+    backgroundColor: '#900',
+    color: '#fff',
+    padding: '20px'
+};
+
+registerBlockType( 'gutenberg-examples/flex-row', {
+    title: 'Example: Basic',
+    icon: 'universal-access-alt',
     category: 'layout',
-    edit: () => <div>Howdy, Ma'am</div>,
-    save: () => <div>Howdy, Ma'am</div>
+    example: {},
+    edit: () => <div style={ blockStyle }>Howdy, Ma'am</div>,
+    save: () => <div style={ blockStyle }>Howdy, Ma'am</div>
 });
