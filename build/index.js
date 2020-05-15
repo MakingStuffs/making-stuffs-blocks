@@ -99,6 +99,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])("gutenberg-examples/flex-row", {
@@ -109,20 +112,28 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])("gut
   // Below tells to get the content of the saved elements paragraph content
   attributes: {
     content: {
-      type: 'array',
-      source: 'children',
-      selector: 'p'
+      type: "array",
+      source: "children",
+      selector: "p"
+    },
+    // Add props parameter for the alignment set by the user
+    alignment: {
+      type: "string",
+      default: "none"
     }
   },
   // Give some demo content to the object
   example: {
     attributes: {
-      content: 'Hello Universe!'
+      content: "Hello Universe!",
+      alignment: "left"
     }
   },
   edit: function edit(props) {
     // Get the attributes from the props
-    var content = props.attributes.content,
+    var _props$attributes = props.attributes,
+        content = _props$attributes.content,
+        alignment = _props$attributes.alignment,
         setAttributes = props.setAttributes,
         className = props.className; // Set the onChange event a la react
 
@@ -130,24 +141,56 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])("gut
       return setAttributes({
         content: newContent
       });
+    };
+
+    var onChangeAlignment = function onChangeAlignment(newAlignment) {
+      console.log(newAlignment);
+      setAttributes({
+        alignment: newAlignment === undefined ? "none" : newAlignment
+      });
     }; // Return the React component to the editor
 
 
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(RichText, {
-      tagName: "p",
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", null,
+    /**
+     * Use the imported blockControls element to
+     * tell the editor to display the alignment toolbar and pass the functionn
+     * to use as a callback in the props.
+     */
+    Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["BlockControls"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["AlignmentToolbar"], {
+      value: alignment,
+      onChange: onChangeAlignment
+    })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
+      tagName: "p" // Assign the text alignment using style attribute
+      ,
+      style: {
+        textAlign: alignment
+      },
       className: className,
       onChange: onChangeContent,
       value: content
-    });
+    }));
   },
   // Just return the component on the save function
   save: function save(props) {
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(RichText.content, {
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"].Content, {
       tagName: "p",
-      value: props.attributes.content
+      value: props.attributes.content,
+      className: "ms-flex-row-".concat(props.attributes.alignment)
     });
   }
 });
+
+/***/ }),
+
+/***/ "@wordpress/block-editor":
+/*!**********************************************!*\
+  !*** external {"this":["wp","blockEditor"]} ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function() { module.exports = this["wp"]["blockEditor"]; }());
 
 /***/ }),
 
