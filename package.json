@@ -1,6 +1,6 @@
 {
   "name": "flex-block",
-  "version": "1.0.0",
+  "version": "0.0.6",
   "description": "",
   "main": "flex-block.js",
   "scripts": {
@@ -12,6 +12,20 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@wordpress/scripts": "9.1.0"
-  }
+    "@wordpress/scripts": "9.1.0",
+    "css-loader": "^3.5.3",
+    "extract-loader": "^5.0.1",
+    "file-loader": "^6.0.0",
+    "node-sass": "^4.14.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "sass-loader": "^8.0.2",
+    "webpack": "^4.43.0"
+  },
+  "browserslist": [
+    "defaults",
+    "last 2 versions",
+    "> 0.2%",
+    "not dead"
+  ]
 }
