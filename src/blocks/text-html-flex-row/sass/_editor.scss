@@ -1,0 +1,36 @@
+.msblocks-flex-row__tile.html {
+    position: relative;
+
+    .msblocks-button {
+        top: 1rem;
+        position: absolute;
+        right: 1rem; 
+        opacity: 0.7;
+        transition: 0.3s ease;
+
+        &:hover {
+            opacity: 100%;
+            background-color: royalblue;
+            color: white; 
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    textarea {
+        height: calc(100% - 2rem);
+        margin-top: 1rem;
+        width: calc(100% - 2rem);
+        margin-left: 1rem;
+        transition: 0.3s ease;
+        padding: 0.5rem;
+        border: 1px solid;
+    }
+
+    iframe {
+        height: 100%;
+        width: 100%;
+    }
+}

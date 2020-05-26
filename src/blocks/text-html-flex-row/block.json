@@ -1,0 +1,22 @@
+{
+  "name": "msblocks/text-html-flex-row",
+  "category": "layout",
+  "keywords": ["flex", "html", "text", "embed", "row"],
+  "attributes": {
+    "htmlEmbed": {
+      "type": "string"
+    },
+    "htmlPosition": {
+      "type": "string"
+    },
+    "flipOrderOnMobile": {
+      "type": "boolean"
+    },
+    "color": {
+      "type": "string"
+    },
+    "isFullWidth": {
+      "type": "boolean"
+    }
+  }
+}
