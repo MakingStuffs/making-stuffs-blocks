@@ -1,0 +1,33 @@
+{
+  "name": "msblocks/image-text-flex-row",
+  "category": "layout",
+  "attributes": {
+    "buttonURL": {
+      "type": "string"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "mediaID": {
+      "type": "number"
+    },
+    "mediaURL": {
+      "type": "string",
+      "source": "attribute",
+      "attribute": "src",
+      "selector": "img"
+    },
+    "mediaPosition": {
+      "type": "string"
+    },
+    "flipOrderOnMobile": {
+      "type": "boolean"
+    },
+    "color": {
+      "type": "string"
+    },
+    "isFullWidth": {
+      "type": "boolean"
+    }
+  }
+}
