@@ -1,0 +1,40 @@
+ul.msblocks-radios {
+    list-style: none !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 1rem;
+    background-color: #fff !important;
+    padding: 1rem !important;
+
+    li {
+        margin: 0.25rem;
+    }
+}
+
+// Controls 
+
+.components-range-control .components-base-control__label {
+    width: unset;
+}
+
+// editor pagination
+.woocommerce-pagination {
+    .page-numbers {
+        display: flex;
+
+        li {
+            display: inline-block;
+            
+            span.page-numbers,
+            a.page-numbers {
+                padding: 5.34px 14px;
+                background-color: #eee;
+            }
+
+            span.page-numbers.current {
+                background-color: #ddd;
+            }
+        }
+    }
+}

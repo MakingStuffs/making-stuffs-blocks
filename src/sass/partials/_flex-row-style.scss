@@ -1,0 +1,91 @@
+.msblocks-flex-row-editor,
+.msblocks-flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  justify-content: space-evenly;
+}
+
+.msblocks-flex-row__tile {
+  width: 500px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  flex-grow: 1;
+  min-height: 300px;
+  height: 500px;
+  max-height: 100%;
+  padding: 1rem;
+}
+
+.msblocks-flex-row[mediaposition="left"] .msblocks-flex-row__tile:nth-child(2) {
+  order: 1;
+}
+.msblocks-flex-row[mediaposition="left"] .msblocks-flex-row__tile:first-child {
+  order: 2;
+}
+.msblocks-flex-row[mediaposition="right"]
+  .msblocks-flex-row__tile:nth-child(2) {
+  order: 2;
+}
+.msblocks-flex-row[mediaposition="right"] .msblocks-flex-row__tile:first-child {
+  order: 1;
+}
+.msblocks-flex-row[mediaposition="left"][fliporderonmobile="true"]
+  .msblocks-flex-row__tile:nth-child(2) {
+  order: 2;
+}
+.msblocks-flex-row[mediaposition="left"][fliporderonmobile="true"]
+  .msblocks-flex-row__tile:first-child {
+  order: 1;
+}
+.msblocks-flex-row[mediaposition="right"][fliporderonmobile="true"]
+  .msblocks-flex-row__tile:nth-child(2) {
+  order: 1;
+}
+.msblocks-flex-row[mediaposition="right"][fliporderonmobile="true"]
+  .msblocks-flex-row__tile:first-child {
+  order: 2;
+}
+
+.msblocks-button {
+  padding: 0.5rem;
+  box-shadow: 0.2rem 0.2rem 0.6rem rgba(black, 0.3);
+  background-color: #3dba5b;
+  color: #333;
+}
+
+.wp-block-cover {
+  margin-top: 0 !important;
+}
+
+@media (min-width: 1000px) {
+  .msblocks-flex-row[mediaposition="left"][fliporderonmobile="true"]
+    .msblocks-flex-row__tile:first-child {
+    order: 2;
+  }
+  .msblocks-flex-row[mediaposition="left"][fliporderonmobile="true"]
+    .msblocks-flex-row__tile:nth-child(2) {
+    order: 1;
+  }
+
+  .msblocks-flex-row[mediaposition="right"][fliporderonmobile="true"]
+    .msblocks-flex-row__tile:nth-child(2) {
+    order: 2;
+  }
+  .msblocks-flex-row[mediaposition="right"][fliporderonmobile="true"]
+    .msblocks-flex-row__tile:first-child {
+    order: 1;
+  }
+}
+
+@media (min-width: 66.4989378333em) {
+  .msblocks-flex-row.full-width {
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    max-width: 1000%;
+    width: auto;
+  }
+}

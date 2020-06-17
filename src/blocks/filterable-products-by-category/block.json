@@ -1,0 +1,39 @@
+{
+  "name": "msblocks/filterable-products-by-category",
+  "category": "layout",
+  "keywords": ["woocommerce", "products", "filterable", "grid"],
+  "attributes": {
+    "category": {
+      "type": "string",
+      "default": "uncategorised"
+    },
+    "rows": {
+      "type": "number",
+      "default": 2
+    },
+    "columns": {
+      "type": "number",
+      "default": 2
+    },
+    "isEditing": {
+      "type": "boolean",
+      "default": false
+    },
+    "categories": {
+      "type": "string",
+      "source": "meta",
+      "meta": "categories"
+    },
+    "filter": {
+      "type": "object",
+      "default": {
+        "price_min": 0,
+        "price_max": 100
+      }
+    },
+    "tagLimit": {
+      "type": "number",
+      "default": 0
+    }
+  }
+}
